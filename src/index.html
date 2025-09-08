@@ -2,32 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BARF Fat Content Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title">🐾 BARF Fat Content Calculator</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
 </head>
 <body>
-  <h1>🐾 BARF Fat Content Calculator</h1>
+  <h1 data-i18n="title">🐾 BARF Fat Content Calculator</h1>
 
+  <!-- Input fields -->
   <div class="input-group">
-    <label for="totalWeight">Total meat amount (g):</label>
-    <input type="number" id="totalWeight" min="1">
+    <label for="totalWeight" data-i18n="totalWeight">Total meat amount (g):</label>
+    <input type="number" id="totalWeight" placeholder="250">
   </div>
 
   <div class="input-group">
-    <label for="targetFat">Target fat content (%):</label>
-    <input type="number" id="targetFat" step="0.1" min="0" max="100">
+    <label for="targetFat" data-i18n="targetFat">Target fat content (%):</label>
+    <input type="number" id="targetFat" step="0.1" placeholder="16">
   </div>
 
-  <h2>Meat types</h2>
-  <div id="meatList"></div>
-  <button onclick="addMeat()">+ Add meat type</button>
+  <!-- Meat list -->
+  <h2 data-i18n="meatTypes">Meat types</h2>
+  <div id="meat-list"></div>
+  <button id="addMeatBtn" data-i18n="addMeat">+ Add meat type</button>
 
+  <!-- Calculate button -->
   <div>
-    <button onclick="calculate()">Calculate</button>
+    <button id="calcBtn" data-i18n="calculate">Calculate</button>
   </div>
 
-  <h2>Result</h2>
+  <!-- Results section -->
+  <h2 data-i18n="result">Result</h2>
   <div id="result"></div>
+
+  <table id="resultTable">
+    <thead>
+      <tr>
+        <th data-i18n="tableHeaders.meat">Meat</th>
+        <th data-i18n="tableHeaders.fat">Fat (%)</th>
+        <th data-i18n="tableHeaders.amount">Amount (g)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Language switcher -->
+  <div style="margin-top:1rem;">
+    <button id="langSwitch" onclick="switchLanguage()" data-i18n="languageSwitch">Switch language</button>
+  </div>
 
   <script src="app.js"></script>
 </body>
