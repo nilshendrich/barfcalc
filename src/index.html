@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BARF Fat Content Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🐾 BARF Fat Content Calculator</h1>
+
+  <div class="input-group">
+    <label for="totalWeight">Total meat amount (g):</label>
+    <input type="number" id="totalWeight" min="1">
+  </div>
+
+  <div class="input-group">
+    <label for="targetFat">Target fat content (%):</label>
+    <input type="number" id="targetFat" step="0.1" min="0" max="100">
+  </div>
+
+  <h2>Meat types</h2>
+  <div id="meatList"></div>
+  <button onclick="addMeat()">+ Add meat type</button>
+
+  <div>
+    <button onclick="calculate()">Calculate</button>
+  </div>
+
+  <h2>Result</h2>
+  <div id="result"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

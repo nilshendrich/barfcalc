@@ -1,24 +1,9 @@
 {
   "defaultMeats": [
-    {
-      "name": "Rind mager",
-      "fat": 5.0
-    },
-    {
-      "name": "Rind durchwachsen",
-      "fat": 15.0
-    },
-    {
-      "name": "Huhn",
-      "fat": 8.0
-    },
-    {
-      "name": "Pute",
-      "fat": 6.0
-    },
-    {
-      "name": "Lamm",
-      "fat": 20.0
-    }
+    {"name": "Rind mager", "fat": 5.0, "active": true},
+    {"name": "Rind durchwachsen", "fat": 15.0, "active": true},
+    {"name": "Huhn", "fat": 8.0, "active": true},
+    {"name": "Pute", "fat": 6.0, "active": true},
+    {"name": "Lamm", "fat": 20.0, "active": true}
   ]
 }
