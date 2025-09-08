@@ -1,0 +1,29 @@
+{
+  "title": "🐾 BARF Fat Content Calculator",
+  "totalWeight": "Total meat amount (g):",
+  "targetFat": "Target fat content (%):",
+  "meatTypes": "Meat types",
+  "addMeat": "+ Add meat type",
+  "calculate": "Calculate",
+  "result": "Result",
+  "tableHeaders": {
+    "meat": "Meat",
+    "fat": "Fat (%)",
+    "amount": "Amount (g)"
+  },
+  "alerts": {
+    "inputMissing": "Please enter total weight, target fat, and at least 2 active meat types."
+  },
+  "labels": {
+    "fat": "Fat content (%):",
+    "namePlaceholder": "Meat name"
+  },
+  "buttons": {
+    "remove": "❌ Remove"
+  },
+  "resultText": {
+    "targetFat": "Target fat",
+    "avgFat": "Estimated average fat"
+  },
+  "languageSwitch": "Switch language"
+}

@@ -1,0 +1,29 @@
+{
+  "title": "🐾 BARF Fettgehalt-Rechner",
+  "totalWeight": "Gesamtmenge Fleisch (g):",
+  "targetFat": "Zielfettgehalt (%):",
+  "meatTypes": "Fleischsorten",
+  "addMeat": "+ Fleischsorte hinzufügen",
+  "calculate": "Berechnen",
+  "result": "Ergebnis",
+  "tableHeaders": {
+    "meat": "Fleischsorte",
+    "fat": "Fettgehalt (%)",
+    "amount": "Menge (g)"
+  },
+  "alerts": {
+    "inputMissing": "Bitte Gesamtmenge, Zielfettgehalt und mindestens 2 aktive Fleischsorten eingeben."
+  },
+  "labels": {
+    "fat": "Fettgehalt (%):",
+    "namePlaceholder": "Fleischname"
+  },
+  "buttons": {
+    "remove": "❌ Entfernen"
+  },
+  "resultText": {
+    "targetFat": "Ziel-Fettgehalt",
+    "avgFat": "Geschätzter Durchschnittsfettgehalt"
+  },
+  "languageSwitch": "Sprache wechseln"
+}
