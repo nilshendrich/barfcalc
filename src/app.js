@@ -108,21 +108,59 @@ function calculate() {
     return;
   }
 
-  const avgFat = activeMeats.reduce((sum, m) => sum + m.fat, 0) / activeMeats.length;
-  const portion = totalWeight / activeMeats.length;
+  const minFat = Math.min(...activeMeats.map(m => m.fat));
+  const maxFat = Math.max(...activeMeats.map(m => m.fat));
+  let exactPossible = targetFat >= minFat && targetFat <= maxFat;
 
+  // Start with minimum 10% allocation
+  const minShare = 0.1 * totalWeight;
+  let portions = Array(activeMeats.length).fill(minShare);
+  let remaining = totalWeight - minShare * activeMeats.length;
+
+  // Iteratively distribute remaining weight
+  for (let iter = 0; iter < 1000 && remaining > 0.01; iter++) {
+    // Current fat average
+    let achievedFat = portions.reduce((sum, p, i) => sum + p * activeMeats[i].fat, 0) / totalWeight;
+
+    // Difference to target
+    let diff = targetFat - achievedFat;
+
+    if (Math.abs(diff) < 0.01) break; // Done
+
+    // Choose meats depending on direction
+    let candidates = diff > 0
+      ? activeMeats.map((m, i) => ({ idx: i, fat: m.fat })).filter(m => m.fat > achievedFat)
+      : activeMeats.map((m, i) => ({ idx: i, fat: m.fat })).filter(m => m.fat < achievedFat);
+
+    if (candidates.length === 0) break; // No more improvement possible
+
+    // Add small portion to best candidate
+    let best = diff > 0
+      ? candidates.reduce((a, b) => a.fat < b.fat ? b : a) // fattest meat
+      : candidates.reduce((a, b) => a.fat > b.fat ? b : a); // leanest meat
+
+    let add = Math.min(remaining, totalWeight * 0.01); // add up to 1% each step
+    portions[best.idx] += add;
+    remaining -= add;
+  }
+
+  // Final achieved fat
+  let achievedFat = portions.reduce((sum, p, i) => sum + (p * activeMeats[i].fat), 0) / totalWeight;
+
+  // Display results
   resultDiv.innerHTML = `
     <p>${translations.resultText?.targetFat || "Target fat"}: ${targetFat}%</p>
-    <p>${translations.resultText?.avgFat || "Estimated average fat"}: ${avgFat.toFixed(2)}%</p>
+    <p>${translations.resultText?.avgFat || "Estimated average fat"}: ${achievedFat.toFixed(2)}%</p>
+    ${!exactPossible ? `<p><em>⚠️ Target outside possible range (min ${minFat}%, max ${maxFat}%).</em></p>` : ""}
   `;
 
   resultTable.innerHTML = "";
-  activeMeats.forEach(meat => {
+  activeMeats.forEach((meat, i) => {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${meat.name}</td>
       <td>${meat.fat}%</td>
-      <td>${portion.toFixed(1)} g</td>
+      <td>${portions[i].toFixed(1)} g</td>
     `;
     resultTable.appendChild(row);
   });
