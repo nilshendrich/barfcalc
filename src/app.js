@@ -149,8 +149,8 @@ function calculate() {
 
   // Display results
   resultDiv.innerHTML = `
-    <p>${translations.resultText?.targetFat || "Target fat"}: ${targetFat}%</p>
-    <p>${translations.resultText?.avgFat || "Estimated average fat"}: ${achievedFat.toFixed(2)}%</p>
+    <div data-i18n="resultText.targetFat">${translations.resultText?.targetFat || "Target fat"}:</div><div> ${targetFat}%</div>
+    <div data-i18n="resultText.avgFat">${translations.resultText?.avgFat || "Estimated average fat"}:</div><div> ${achievedFat.toFixed(2)}%</div>
     ${!exactPossible ? `<p><em>⚠️ Target outside possible range (min ${minFat}%, max ${maxFat}%).</em></p>` : ""}
   `;
 
