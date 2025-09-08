@@ -78,16 +78,19 @@ button:hover {
   background: #fafafa;
   border-radius: 10px;
   border: 1px solid #eee;
+  overflow-x: auto; /* allows horizontal scroll on small devices */
 }
 
 #result-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1em;
+  font-size: 1.1rem;        /* bigger text */
+  line-height: 1.6;         /* more spacing */
 }
 
 #result-table th, #result-table td {
-  padding: 0.6em;
+  padding: 0.9em 1em;       /* more padding */
   border-bottom: 1px solid #ddd;
   text-align: left;
 }
@@ -95,8 +98,32 @@ button:hover {
 #result-table th {
   background: #f0f0f0;
   font-weight: bold;
+  font-size: 1.2rem;        /* bigger header text */
 }
 
+#result-table tr:hover {
+  background: #f9f9f9;      /* highlight row on hover (desktop) */
+}
+
+/* Dark mode adjustments for readability */
+@media (prefers-color-scheme: dark) {
+  #result-table {
+    font-size: 1.1rem;
+  }
+
+  #result-table th {
+    background: #2a2a2a;
+    font-size: 1.2rem;
+  }
+
+  #result-table td {
+    border-bottom: 1px solid #333;
+  }
+
+  #result-table tr:hover {
+    background: #222;
+  }
+}
 /* ===========================
    Meat list section
    =========================== */
