@@ -28,12 +28,17 @@ Ziel ist es, eine Web-Anwendung bereitzustellen, die Tierhalter bei der Berechnu
 - Ermittlung des Mischungsverhältnisses der Fleischsorten, sodass die Gesamtportion den Zielfettgehalt erreicht.  
 - Unterstützung für **mehr als zwei Fleischsorten** (z. B. Näherungsverfahren / Optimierung).  
 - Berechnung der jeweiligen Fleischmengen pro Sorte.  
-- Validierung: Falls keine exakte Mischung möglich ist → Hinweis auf Abweichung vom Ziel.  
+- **Validierung**:  
+  - Falls keine exakte Mischung möglich ist → Hinweis auf Abweichung vom Ziel.  
+  - Zielfettgehalt muss **innerhalb des möglichen Bereichs** der aktivierten Fleischsorten liegen (zwischen minimalem und maximalem Fettgehalt).  
+  - Falls außerhalb → Ziel kann nicht exakt erreicht werden, Abweichung wird berechnet und angezeigt.  
+- **Mengenrestriktion**: Jede aktivierte Fleischsorte muss mindestens **10 % der Gesamtmenge** enthalten.  
 
 ### Ausgabe / Darstellung
 - Anzeige der berechneten Mengen pro Fleischsorte (in g).  
 - Anzeige des **Soll- vs. Ist-Fettgehalts**.  
 - Visualisierung der Fleischanteile (z. B. Tortendiagramm).  
+- Hinweis, falls der Zielfettgehalt nicht exakt erreicht werden konnte.  
 
 ### Mehrsprachigkeit
 - Die Anwendung muss **mehrsprachig** sein.  
