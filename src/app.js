@@ -46,19 +46,19 @@ function renderMeats() {
     div.className = "meat-item";
 
     div.innerHTML = `
-      <label>
-        <input type="checkbox" ${meat.active !== false ? 'checked' : ''} 
-               onchange="toggleMeat(${index}, this.checked)">
-        <input type="text" value="${meat.name}" 
-               onchange="updateMeat(${index}, 'name', this.value)" 
-               data-i18n-placeholder="labels.namePlaceholder" placeholder="Meat name">
-      </label>
-      <label>
-        <span data-i18n="labels.fat">Fat content (%):</span>
-        <input type="number" value="${meat.fat}" step="0.1" min="0" max="100" 
-               onchange="updateMeat(${index}, 'fat', this.value)">
-      </label>
-      <button onclick="removeMeat(${index})" data-i18n="buttons.remove">❌ Remove</button>
+          <label>
+            <input type="text" value="${meat.name}" 
+                  onchange="updateMeat(${index}, 'name', this.value)" 
+                  data-i18n-placeholder="labels.namePlaceholder" placeholder="Meat name">
+          </label>
+          <label>
+            <span data-i18n="labels.fat">Fat content (%):</span>
+            <input type="number" value="${meat.fat}" step="0.1" min="0" max="100" inputmode="decimal" 
+                  onchange="updateMeat(${index}, 'fat', this.value)">
+          </label>
+          <input type="checkbox" ${meat.active !== false ? 'checked' : ''} 
+                  onchange="toggleMeat(${index}, this.checked)">
+          <button onclick="removeMeat(${index})" data-i18n="buttons.remove">❌ Remove</button>
     `;
 
     container.appendChild(div);

@@ -17,6 +17,8 @@ h1, h2, h3 {
 }
 
 .container {
+  display: flex;
+  flex-wrap: wrap;
   max-width: 600px;
   margin: 0 auto;
   background: #fff;
@@ -129,11 +131,21 @@ button:hover {
    =========================== */
 
 .meat-item {
+  width: 150px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.5em;
-  padding: 0.5em 0;
+  margin: 10px;
   border-bottom: 1px solid #eee;
+   /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.meat-item:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .meat-item input[type="checkbox"] {
@@ -146,81 +158,7 @@ button:hover {
   flex: 1;
 }
 
-/* ===========================
-   Responsive design
-   =========================== */
-
-/* Tablet and up: two-column layout */
-@media (min-width: 768px) {
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5em;
-  }
-
-  #results {
-    grid-column: span 2;
-  }
-}
-
-/* Desktop and up: increase font and spacing */
-@media (min-width: 1200px) {
-  body {
-    font-size: 18px;
-    padding: 2em;
-  }
-
-  .container {
-    max-width: 1000px;
-  }
-}
-
-/* ===========================
-   Dark Mode (auto detection)
-   =========================== */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #121212;
-    color: #e0e0e0;
-  }
-
-  .container {
-    background: #1e1e1e;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.7);
-  }
-
-  input, select, button {
-    background: #2a2a2a;
-    color: #e0e0e0;
-    border: 1px solid #555;
-  }
-
-  input:focus, select:focus {
-    border-color: #66aaff;
-  }
-
-  button {
-    background-color: #3399ff;
-  }
-
-  button:hover {
-    background-color: #1a73e8;
-  }
-
-  #results {
-    background: #1a1a1a;
-    border: 1px solid #333;
-  }
-
-  #result-table th {
-    background: #2a2a2a;
-  }
-
-  #result-table td {
-    border-bottom: 1px solid #333;
-  }
-
-  .meat-item {
-    border-bottom: 1px solid #333;
-  }
+/* Add some padding inside the card container */
+.datacaption {
+  padding: 2px 16px;
 }
