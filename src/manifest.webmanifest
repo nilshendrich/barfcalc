@@ -1,0 +1,7 @@
+{
+  "lang": "de",
+  "name": "BARF Fettgehalt-Rechner",
+  "short_name": "BarfCalc",
+  "start_url": "/index.html",
+  "display": "standalone"
+}
