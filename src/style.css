@@ -19,7 +19,6 @@ h1, h2, h3 {
 .container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 600px;
   margin: 0 auto;
   background: #fff;
   padding: 1em;
@@ -61,7 +60,6 @@ button {
   color: white;
   cursor: pointer;
   font-weight: bold;
-  margin-top: 1em;
   transition: background 0.3s;
   border: none;
 }
@@ -131,11 +129,12 @@ button:hover {
    =========================== */
 
 .meat-item {
-  width: 150px;
+  width: 140px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5em;
+  padding: 1em;
   margin: 10px;
   border-bottom: 1px solid #eee;
    /* Add shadows to create the "card" effect */
@@ -158,7 +157,15 @@ button:hover {
   flex: 1;
 }
 
-/* Add some padding inside the card container */
-.datacaption {
-  padding: 2px 16px;
+.meatitem-actions {
+  display: flex;
+  align-items: center;
+}
+
+.meatitem-actions button  {
+  width: 80%;
+}
+
+.meatitem-actions input[type="checkbox"]{
+  width: 20%;
 }

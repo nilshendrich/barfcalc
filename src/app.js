@@ -56,9 +56,11 @@ function renderMeats() {
             <input type="number" value="${meat.fat}" step="0.1" min="0" max="100" inputmode="decimal" 
                   onchange="updateMeat(${index}, 'fat', this.value)">
           </label>
-          <input type="checkbox" ${meat.active !== false ? 'checked' : ''} 
-                  onchange="toggleMeat(${index}, this.checked)">
-          <button onclick="removeMeat(${index})" data-i18n="buttons.remove">❌ Remove</button>
+          <div class="meatitem-actions">
+            <input type="checkbox" ${meat.active !== false ? 'checked' : ''} 
+                    onchange="toggleMeat(${index}, this.checked)">
+            <button onclick="removeMeat(${index})" data-i18n="buttons.remove">❌ Remove</button>
+          </div>
     `;
 
     container.appendChild(div);
