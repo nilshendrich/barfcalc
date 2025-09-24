@@ -129,15 +129,16 @@ function calculate() {
 
     // Choose meats depending on direction
     let candidates = diff > 0
-      ? activeMeats.map((m, i) => ({ idx: i, fat: m.fat })).filter(m => m.fat > achievedFat)
-      : activeMeats.map((m, i) => ({ idx: i, fat: m.fat })).filter(m => m.fat < achievedFat);
+      ? activeMeats.map((m, i) => ({ idx: i, fat: m.fat, portion: portions[i] })).filter(m => m.fat > achievedFat)
+      : activeMeats.map((m, i) => ({ idx: i, fat: m.fat, portion: portions[i] })).filter(m => m.fat < achievedFat);
 
     if (candidates.length === 0) break; // No more improvement possible
 
     // Add small portion to best candidate
-    let best = diff > 0
-      ? candidates.reduce((a, b) => a.fat < b.fat ? b : a) // fattest meat
-      : candidates.reduce((a, b) => a.fat > b.fat ? b : a); // leanest meat
+    // let best = diff > 0
+    //   ? candidates.reduce((a, b) => a.fat < b.fat ? b : a) // fattest meat
+    //   : candidates.reduce((a, b) => a.fat > b.fat ? b : a); // leanest meat
+    let best = candidates.reduce((a, b) => a.portion < b.portion ? a : b); // aim for equal distribution of meats
 
     let add = Math.min(remaining, totalWeight * 0.01); // add up to 1% each step
     portions[best.idx] += add;
