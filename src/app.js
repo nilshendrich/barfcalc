@@ -122,12 +122,10 @@ function calculate() {
   // Iteratively distribute remaining weight
   for (let iter = 0; iter < 1000 && remaining > 0.01; iter++) {
     // Current fat average
-    let achievedFat = portions.reduce((sum, p, i) => sum + p * activeMeats[i].fat, 0) / totalWeight;
+    let achievedFat = 100 * portions.reduce((sum, p, i) => sum + p * activeMeats[i].fat / 100, 0) / (totalWeight-remaining);
 
     // Difference to target
     let diff = targetFat - achievedFat;
-
-    if (Math.abs(diff) < 0.01) break; // Done
 
     // Choose meats depending on direction
     let candidates = diff > 0
@@ -147,7 +145,7 @@ function calculate() {
   }
 
   // Final achieved fat
-  let achievedFat = portions.reduce((sum, p, i) => sum + (p * activeMeats[i].fat), 0) / totalWeight;
+  let achievedFat = 100 * portions.reduce((sum, p, i) => sum + (p * activeMeats[i].fat / 100), 0) / (totalWeight-remaining);
 
   // Display results
   resultDiv.innerHTML = `
