@@ -13,9 +13,29 @@ function init() {
   resultTable = document.getElementById("resultTable").querySelector("tbody");
 
   loadConfig();
+  loadSavedTargets();
 
   document.getElementById("addMeatBtn").addEventListener("click", addMeat);
   document.getElementById("calcBtn").addEventListener("click", calculate);
+  document.getElementById("targetFat").addEventListener("change", saveTargets);
+  document.getElementById("totalWeight").addEventListener("change", saveTargets);
+
+  if (targetFatInput.value && totalWeightInput && meats.length > 1) {
+      calculate();
+  }
+}
+
+// Load default meat types from config.json
+function loadSavedTargets() {
+  const savedTargetFat = localStorage.getItem("targetFat");
+  if (savedTargetFat) {
+    targetFatInput.value = savedTargetFat;
+  }
+
+  const savedTotalWeight = localStorage.getItem("totalWeight");
+  if (savedTotalWeight) {
+    totalWeightInput.value = savedTotalWeight;
+  }
 }
 
 // Load default meat types from config.json
@@ -97,6 +117,12 @@ function removeMeat(index) {
 // Save meats to localStorage
 function saveMeats() {
   localStorage.setItem("meats", JSON.stringify(meats));
+}
+
+// Save target values to localStorage
+function saveTargets() {
+  localStorage.setItem("targetFat", targetFatInput.value);
+  localStorage.setItem("totalWeight", totalWeightInput.value);
 }
 
 // Perform fat calculation
