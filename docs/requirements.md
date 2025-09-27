@@ -32,7 +32,7 @@ Ziel ist es, eine Web-Anwendung bereitzustellen, die Tierhalter bei der Berechnu
   - Falls keine exakte Mischung möglich ist → Hinweis auf Abweichung vom Ziel.  
   - Zielfettgehalt muss **innerhalb des möglichen Bereichs** der aktivierten Fleischsorten liegen (zwischen minimalem und maximalem Fettgehalt).  
   - Falls außerhalb → Ziel kann nicht exakt erreicht werden, Abweichung wird berechnet und angezeigt.  
-- **Mengenrestriktion**: Jede aktivierte Fleischsorte muss mindestens **10 % der Gesamtmenge** enthalten.  
+- **Mengenrestriktion**: Jede aktivierte Fleischsorte muss mindestens **1 g** enthalten.  
 
 ### Ausgabe / Darstellung
 - Anzeige der berechneten Mengen pro Fleischsorte (in g).  
