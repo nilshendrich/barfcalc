@@ -115,12 +115,12 @@ function calculate() {
   let exactPossible = targetFat >= minFat && targetFat <= maxFat;
 
   // Start with minimum 10% allocation
-  const minShare = 0.1 * totalWeight;
+  const minShare = 1;
   let portions = Array(activeMeats.length).fill(minShare);
   let remaining = totalWeight - minShare * activeMeats.length;
 
   // Iteratively distribute remaining weight
-  for (let iter = 0; iter < 1000 && remaining > 0.01; iter++) {
+  for (let iter = 0; iter < 1001 && remaining > 0.0; iter++) {
     // Current fat average
     let achievedFat = 100 * portions.reduce((sum, p, i) => sum + p * activeMeats[i].fat / 100, 0) / (totalWeight-remaining);
 
@@ -140,7 +140,7 @@ function calculate() {
     //   : candidates.reduce((a, b) => a.fat > b.fat ? b : a); // leanest meat
     let best = candidates.reduce((a, b) => a.portion < b.portion ? a : b); // aim for equal distribution of meats
 
-    let add = Math.min(remaining, totalWeight * 0.01); // add up to 1% each step
+    let add = Math.max( 1, Math.round( Math.min(remaining, totalWeight * 0.001))); // add up to 0.1% each step
     portions[best.idx] += add;
     remaining -= add;
   }
