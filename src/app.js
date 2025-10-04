@@ -65,9 +65,13 @@ function renderMeats() {
     const div = document.createElement("div");
     div.className = "meat-item";
 
+    if (resultTable) {
+      div.style.backgroundImage = 'linear-gradient(to bottom, white 1%, indianred 0%)';
+    }
+
     div.innerHTML = `
           <label>
-            <input type="text" value="${meat.name}" 
+            <input id="meatname" type="text" value="${meat.name}" 
                   onchange="updateMeat(${index}, 'name', this.value)" 
                   data-i18n-placeholder="labels.namePlaceholder" placeholder="Meat name">
           </label>
@@ -123,6 +127,27 @@ function saveMeats() {
 function saveTargets() {
   localStorage.setItem("targetFat", targetFatInput.value);
   localStorage.setItem("totalWeight", totalWeightInput.value);
+}
+
+function visalizeMeatPortions(portionresults, activeMeats) {
+  let portionSum = portionresults.reduce((sum, p, i) => sum + p.portion, 0);
+  let meatItems = document.getElementsByClassName('meat-item');
+
+  for (let i = 0; i < meatItems.length; i++) {
+    meatItems[i].style.backgroundImage = 'linear-gradient(to bottom, white 100%, indianred 0%)';
+    let temp = meatItems[i];
+    temp = temp.querySelector('input').value;
+    for (let j = 0; j < activeMeats.length; j++) {
+      let tmpName = activeMeats[j].name;
+      if (temp.localeCompare(activeMeats[j].name) == 0) {
+        meatItems[i].style.backgroundImage = 'linear-gradient(to bottom, white ' + 100 * (1 - portionresults[j]/totalWeightInput.value) + '%, indianred 0%)';
+        break;
+      }
+      else {
+        meatItems[i].style.backgroundImage = 'linear-gradient(to bottom, white 100%, indianred 0%)';
+      }
+    }
+  }
 }
 
 // Perform fat calculation
@@ -191,6 +216,8 @@ function calculate() {
     `;
     resultTable.appendChild(row);
   });
+  visalizeMeatPortions(portions, activeMeats);
+
 }
 
 // ------------------ Language Support ------------------
