@@ -3,5 +3,35 @@
   "name": "BARF Fettgehalt-Rechner",
   "short_name": "BarfCalc",
   "start_url": "/index.html",
-  "display": "standalone"
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/icons/icon-384x384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "/assets/icons/icon-1024x1024.png",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "orientation": "any",
+  "scope": "/",
+  "description": "barfcalc ist ein kleines Web-Tool zur Unterstützung von Tierhaltern, die nach der BARF-Methode füttern. Die Anwendung hilft, Mischungen aus verschiedenen Fleischsorten so zusammenzustellen, dass ein gewünschter Zielfettgehalt erreicht wird.",
+  "apple_touch_icon": {
+    "paths": [
+      "/assets/icons/icon-1024x1024.png"
+    ],
+    "sizes": [
+      "/assets/icons/icon-1024x1024.png"
+    ]
+  }
 }
