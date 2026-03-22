@@ -15,14 +15,9 @@ Die Anwendung hilft, Mischungen aus verschiedenen Fleischsorten so zusammenzuste
 
 ---
 
-## 📦 Geplante Erweiterungen
-- Unterstützung für mehr als zwei Fleischsorten bei der Berechnung (Optimierung)  
-- Visualisierung der Ergebnisse (z. B. Tortendiagramm)  
-
----
-
 ## 🛠️ Installation & Nutzung
 1. Repo klonen:  
    ```bash
    git clone https://github.com/nilshendrich/barfcalc.git
    cd barfcalc
+
