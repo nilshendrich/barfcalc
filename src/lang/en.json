@@ -19,7 +19,7 @@
     "namePlaceholder": "Meat name"
   },
   "buttons": {
-    "remove": "❌ Remove"
+    "remove": "Remove"
   },
   "resultText": {
     "targetFat": "Target fat",

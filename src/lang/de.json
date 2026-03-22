@@ -19,7 +19,7 @@
     "namePlaceholder": "Fleischname"
   },
   "buttons": {
-    "remove": "❌ Entfernen"
+    "remove": "Entfernen"
   },
   "resultText": {
     "targetFat": "Ziel-Fettgehalt",
